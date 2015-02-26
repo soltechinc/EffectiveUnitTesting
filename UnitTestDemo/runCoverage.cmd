@@ -40,7 +40,7 @@ SET "ReportGeneratorPath=%CurDir%packages\ReportGenerator.2.1.1.0\ReportGenerato
 :: its analysis. It uses a +/-[<AssemblyNameExpression>]<ClassNameExpression>
 :: format that supports wildcard globbing.
 ::
-"%OpenCoverPath%" -register:user "-output:%CoverageReportName%" "-target:%XUnitConsolePath%" "-targetdir:%CurDir%bin\Debug" "-targetargs:""%UnitTestFileName%"" -noshadow" "-filter:+[*]* -[xunit*]* -[%UnitTestAssembly%]*"
+"%OpenCoverPath%" -register:user "-output:%CoverageReportName%" "-target:%XUnitConsolePath%" "-targetdir:%CurDir%bin\Debug" "-targetargs:""%UnitTestFileName%""" "-filter:+[*]* -[xunit*]* -[%UnitTestAssembly%]*"
 IF NOT ERRORLEVEL 0 (
 	ECHO Unable to perform code coverage - Error %ERRORLEVEL%.
 	SET RESULT=-1
