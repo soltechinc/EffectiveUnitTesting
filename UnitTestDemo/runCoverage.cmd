@@ -7,7 +7,7 @@ SET "CoverageReportName=CodeCoverage.xml"
 FOR %%I IN (%UnitTestFileName%) DO SET "UnitTestAssembly=%%~nI"
 FOR /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET RUNDATE=%%c-%%a-%%b)
 FOR /f "tokens=1-2 delims=/:" %%a in ('time /t') do (SET RUNTIME=%%a-%%b)
-SET "ReportDirectory=%CurDir%Reports\%RUNDATE%_%RUNTIME%"
+SET "ReportDirectory=%CurDir%CoverageReports\%RUNDATE%_%RUNTIME%"
 SET "ReportIndex=%ReportDirectory%\index.htm"
 
 SET "XUnitConsolePath=%CurDir%packages\xunit.runners.2.0.0-rc3-build2880\tools\xunit.console.exe"
