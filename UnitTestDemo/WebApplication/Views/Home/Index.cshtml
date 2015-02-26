@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<MyObject>
+
+<div class="jumbotron">
+    <h1>Unit Testing</h1>
+    <p class="lead">Unit testing is fun! All the cool kids are doing it.</p>
+    <p><a href="http://www.manning.com/osherove/" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            { 
+            <tr>
+                <td>@item.Id</td><td>@item.Name</td><td>@item.Created.ToShortDateString()</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("Add")" class="btn btn-lg btn-success"
+       data-toggle="modal"
+       data-target="#addObjectModal">Add Object</a>
+    <div id="addObjectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addObjectLabel" aria-hidden="true"></div>
+</div>
