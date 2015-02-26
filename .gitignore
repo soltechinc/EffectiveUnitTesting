@@ -10,6 +10,8 @@
 _ReSharper*/
 *.resharper
 [Tt]est[Rr]esult*
+[Cc]ode[Cc]overage.xml
+[Cc]overage[Rr]eports/
 *.sass-cache
 
 #Project files
