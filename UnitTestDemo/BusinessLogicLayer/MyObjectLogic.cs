@@ -57,5 +57,10 @@ namespace SolTech.Demos.UnitTesting
         {
             return _dao.List();
         }
+
+        public MyObject GetMyObject(Guid id)
+        {
+            return _repository.Get(id);
+        }
     }
 }

@@ -14,6 +14,19 @@ namespace SolTech.Demos.UnitTesting
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/angular.js",
+                        "~/Scripts/angular-resource.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularMocks").Include(
+            "~/Scripts/angular-mocks.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/app").IncludeDirectory(
+            "~/Scripts/app", "*.js", true));
+
+            bundles.Add(new ScriptBundle("~/bundles/appTests").IncludeDirectory(
+            "~/Scripts/appTests", "*.js", true));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

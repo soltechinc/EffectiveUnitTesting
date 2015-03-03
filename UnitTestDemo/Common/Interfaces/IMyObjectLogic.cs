@@ -13,5 +13,6 @@ namespace SolTech.Demos.UnitTesting
         void UpdateMyObject(MyObject item);
         IEnumerable<MyObject> ListMyObjects();
         void DeleteMyObject(Guid id);
+        MyObject GetMyObject(Guid id);
     }
 }
