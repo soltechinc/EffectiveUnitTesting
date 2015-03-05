@@ -4,7 +4,7 @@ SET "CurDir=%~dp0"
 SET "UnitTestFileName=%CurDir%bin\Debug\UnitTestDemo.dll"
 SET "CoverageReportName=CodeCoverage.xml"
 
-FOR %%I IN (%UnitTestFileName%) DO SET "UnitTestAssembly=%%~nI"
+FOR %%I IN ("%UnitTestFileName%") DO SET "UnitTestAssembly=%%~nI"
 FOR /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET RUNDATE=%%c-%%a-%%b)
 FOR /f "tokens=1-2 delims=/:" %%a in ('time /t') do (SET RUNTIME=%%a-%%b)
 SET "ReportDirectory=%CurDir%CoverageReports\%RUNDATE%_%RUNTIME%"
