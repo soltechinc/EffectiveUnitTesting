@@ -17,6 +17,13 @@ namespace SolTech.Demos.UnitTesting.Controllers
         }
 
         [HttpGet]
+        public JsonNetResult Index()
+        {
+            var list = _myObjectLogic.ListMyObjects();
+            return this.JsonNet(list);
+        }
+
+        [HttpGet]
         public JsonNetResult Get(Guid id)
         {
             var myObject = _myObjectLogic.GetMyObject(id);

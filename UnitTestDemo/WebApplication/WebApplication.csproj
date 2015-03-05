@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -228,6 +230,12 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\appBundle.js">
+      <DependentUpon>appBundle.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Scripts\appBundle.min.js">
+      <DependentUpon>appBundle.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\app\controllers\myObjectCtrl.js" />
     <Content Include="Scripts\app\modules\myObjectModule.js" />
     <Content Include="Scripts\app\services\myObjectService.js" />
@@ -244,6 +252,10 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\appBundle.js.bundle" />
+    <Content Include="Scripts\appBundle.min.js.map">
+      <DependentUpon>appBundle.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -988,10 +1000,6 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
-    <Content Include="Scripts\jasmine-samples\Player.js" />
-    <Content Include="Scripts\jasmine-samples\PlayerSpec.js" />
-    <Content Include="Scripts\jasmine-samples\Song.js" />
-    <Content Include="Scripts\jasmine-samples\SpecHelper.js" />
     <Content Include="Scripts\appTests\myObjectCtrlSpec.js" />
     <Content Include="Scripts\jasmine\boot.js" />
     <Content Include="Scripts\jasmine\console.js" />
@@ -1030,6 +1038,7 @@
     <Content Include="Views\Home\_AddObjectForm.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
+    <Content Include="Views\Home\AngularIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1092,6 +1101,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

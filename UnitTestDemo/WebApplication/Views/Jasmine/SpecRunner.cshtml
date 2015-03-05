@@ -10,15 +10,16 @@
     <script type="text/javascript" src="/Scripts/jasmine/jasmine.js"></script>
     <script type="text/javascript" src="/Scripts/jasmine/jasmine-html.js"></script>
     <script type="text/javascript" src="/Scripts/jasmine/boot.js"></script>
-    @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/angularMocks")
+    <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular-resource.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular-mocks.js"></script>
     <link rel="shortcut icon" type="image/png" href="/Content/jasmine/jasmine_favicon.png">
     <link rel="stylesheet" type="text/css" href="/Content/jasmine/jasmine.css">
 
     <!-- include source files here... -->
-    @Scripts.Render("~/bundles/app")
+    <script type="text/javascript" src="/Scripts/appBundle.min.js"></script>
     <!-- include spec files here... -->
-    @Scripts.Render("~/bundles/appTests")
+    <script type="text/javascript" src="/Scripts/appTests/myObjectCtrlSpec.js" )
 </head>
 
 <body>
