@@ -19,11 +19,15 @@ namespace SolTech.Demos.UnitTesting
             var mockAuditLog = new Mock<IAuditLogger>();
 
             var myBLL = new MyObjectLogic(mockRepo.Object, mockDAO.Object, mockAuditLog.Object);
+            //
             // Note that we're not setting CreatedDate
+            //
             var myObject = new MyObject { Id = Guid.NewGuid(), Name = "UnitTest" }; 
             myBLL.AddMyObject(myObject);
 
-            // Compare the received object with the expected
+            //
+            // Compare the received object with what we expected
+            //
             mockRepo.Verify(repo => repo.Add(It.Is<MyObject>(item =>
                 item.Id == myObject.Id &&
                 item.Name == myObject.Name &&
