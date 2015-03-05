@@ -85,10 +85,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestBLL.cs" />
+    <Compile Include="2 - TestBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestController.cs" />
-    <Compile Include="TestMyObject.cs" />
+    <Compile Include="3 - TestController.cs" />
+    <Compile Include="1 - TestMyObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
