@@ -23,6 +23,28 @@ namespace SolTech.Demos.UnitTesting
             Assert.Equal(String.Empty, viewResult.ViewName);
         }
 
+        [Fact(DisplayName = "HomeController: Verify About is shown when the About action is called")]
+        public void VerifyAboutIsShown()
+        {
+            var mockBLL = new Mock<IMyObjectLogic>();
+            var controller = new SolTech.Demos.UnitTesting.Controllers.HomeController(mockBLL.Object);
+            var result = controller.About();
+            Assert.IsType<ViewResult>(result);
+            var viewResult = result as ViewResult;
+            Assert.Equal(String.Empty, viewResult.ViewName);
+        }
+
+        [Fact(DisplayName = "HomeController: Verify Contact is shown when the Contact action is called")]
+        public void VerifyContactIsShown()
+        {
+            var mockBLL = new Mock<IMyObjectLogic>();
+            var controller = new SolTech.Demos.UnitTesting.Controllers.HomeController(mockBLL.Object);
+            var result = controller.Contact();
+            Assert.IsType<ViewResult>(result);
+            var viewResult = result as ViewResult;
+            Assert.Equal(String.Empty, viewResult.ViewName);
+        }
+
         [Fact(DisplayName = "HomeController: Verify Add returns a PartialViewResult with an AddMyObjectModel model")]
         public void VerifyAddReturnsAPartialViewResultWithanAddMyObjectModelModel()
         {
