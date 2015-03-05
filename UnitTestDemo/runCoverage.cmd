@@ -8,11 +8,12 @@ FOR %%I IN ("%UnitTestFileName%") DO SET "UnitTestAssembly=%%~nI"
 FOR /f "tokens=2-4 delims=/ " %%a in ('date /t') do (SET RUNDATE=%%c-%%a-%%b)
 FOR /f "tokens=1-2 delims=/:" %%a in ('time /t') do (SET RUNTIME=%%a-%%b)
 
-IF "%1" NEQ "" (
-	SET "ReportDirectory=%1"
+IF NOT "%~1" == "" (
+	SET "ReportDirectory=%~1"
 ) ELSE (
 	SET "ReportDirectory=%CurDir%CoverageReports\%RUNDATE%_%RUNTIME%"
 )
+
 SET "ReportIndex=%ReportDirectory%\index.htm"
 
 SET "XUnitConsolePath=%CurDir%packages\xunit.runners.2.0.0-rc3-build2880\tools\xunit.console.exe"
@@ -62,7 +63,13 @@ IF NOT ERRORLEVEL 0 (
 )
 
 SET RESULT=0
-IF "%1" == "-show" (
+IF "%~1" == "-show" SET ShowReport=1
+IF "%~2" == "-show" SET ShowReport=1
+IF "%~3" == "-show" SET ShowReport=1
+IF "%~4" == "-show" SET ShowReport=1
+IF "%~5" == "-show" SET ShowReport=1
+
+IF "ShowReport" == "1" (
   :: Launch the default browser to open the report
   "%ReportIndex%"
 ) ELSE (
