@@ -28,6 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Coverage", "Code Cover
 		runCoverage.cmd = runCoverage.cmd
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CIServerSupport", "CIServerSupport", "{C83E8F92-A83E-4E67-966A-CD3DEA00725D}"
+	ProjectSection(SolutionItems) = preProject
+		runXUnit.cmd = runXUnit.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
