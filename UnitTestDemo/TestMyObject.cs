@@ -17,7 +17,9 @@ namespace SolTech.Demos.UnitTesting
             myObject.Id = Guid.NewGuid();
             myObject.Created = DateTime.Now;
             var validationContext = new ValidationContext(myObject);
-            Validator.ValidateObject(myObject, validationContext, true);
+            Assert.Throws<ValidationException>(() =>
+                Validator.ValidateObject(myObject, validationContext, true)
+            );
         }
     }
 }
